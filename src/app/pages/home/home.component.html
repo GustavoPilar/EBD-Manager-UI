@@ -38,7 +38,7 @@
           <div class="w-full p-3 text-center">
             <p class="text-xl my-2 bg-gray-100 border-round p-2"><i [class]="item.icon"></i> {{item.label}}</p>
             <p class="p-2 my-2">{{item.badge}}</p>
-            <p-button fluid label="Acessar" [icon]="item.icon" iconPos="right" severity="info"></p-button>
+            <p-button fluid label="Acessar" [icon]="item.icon" iconPos="right" severity="info" (onClick)="navigateTo(item.url!)"></p-button>
           </div>
         </div>
       }

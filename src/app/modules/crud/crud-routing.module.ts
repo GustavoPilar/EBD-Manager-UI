@@ -1,0 +1,15 @@
+import { CommonModule } from "@angular/common";
+import { NgModule } from "@angular/core";
+import { RouterModule, Routes } from "@angular/router";
+import { CrudListComponent } from "./crud-list/crud-list.component";
+
+export const routes: Routes = [
+  { path: "", component: CrudListComponent, title: "Cadastro" },
+  { path: "manager/list/:entityName", component: CrudListComponent, title: "Cadastro" }
+]
+
+@NgModule({
+  imports: [CommonModule, RouterModule.forChild(routes)],
+  exports: [CommonModule, RouterModule]
+})
+export class CrudRoutingModule { }

@@ -6,6 +6,7 @@ import { App } from './app';
 import { ComponentsModule } from './components/components.module';
 import { providePrimeNG } from 'primeng/config';
 import Aura from "@primeuix/themes/aura";
+import { CrudModule } from './modules/crud/crud.module';
 
 @NgModule({
   declarations: [
@@ -14,13 +15,17 @@ import Aura from "@primeuix/themes/aura";
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ComponentsModule
+    ComponentsModule,
+    CrudModule
   ],
   providers: [
     provideBrowserGlobalErrorListeners(),
     providePrimeNG({
       theme: {
-        preset: Aura
+        preset: Aura,
+        options: {
+          darkModeSelector: false
+        }
       }
     })
   ],

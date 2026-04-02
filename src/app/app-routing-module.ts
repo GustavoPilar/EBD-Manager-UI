@@ -4,8 +4,8 @@ import { HomeComponent } from './pages/home/home.component';
 
 const routes: Routes = [
   { path: "home", component: HomeComponent, title: "Home" },
-  { path: "", redirectTo: "home", pathMatch: "full" },
-  { path: "**", redirectTo: "home", pathMatch: "full" }
+  { path: "manager", loadChildren: () => import("./modules/crud/crud.module").then(cm => cm.CrudModule), title: "Cadastros" },
+  { path: "", redirectTo: "home", pathMatch: "full" }
 ];
 
 @NgModule({

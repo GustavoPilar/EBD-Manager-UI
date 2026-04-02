@@ -1,0 +1,35 @@
+<p-table [value]="entities" [columns]="displayColumns" size="small">
+  <ng-template #header let-columns>
+    <tr>
+      <th></th>
+      @for (column of columns; track $index) {
+        <th [class]="column.styleClass" [style]="{'width' : column.width ? column.width + '%' : 'auto'}">{{column.label}}</th>
+      }
+      <th>Ação</th>
+    </tr>
+  </ng-template>
+  <ng-template #body let-entity let-columns="columns">
+    <tr>
+      <td></td>
+      @for (column of columns; track $index) {
+        <td [class]="column.styleClass">
+          @if (getColumnType(column) == 2) {
+            <p-tag [class]="crudBaseComponent.getTagBackground(entity[column.field], column.field)">{{entity[column.field]}}</p-tag>
+          }
+          @else {
+            {{entity[column.field]}}
+          }
+        </td>
+      }
+      <td class="flex justify-content-center align-items-center">
+        <p-button rounded icon="pi pi-pencil" severity="info" class="hidden md:block" size="small"></p-button>
+        <p-button rounded icon="pi pi-trash" severity="danger" size="small"></p-button>
+      </td>
+    </tr>
+  </ng-template>
+  <ng-template #emptymessage>
+    <tr>
+      <td colspan="2">Nenhum registro encontrado</td>
+    </tr>
+  </ng-template>
+</p-table>

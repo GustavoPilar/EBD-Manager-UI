@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { Router } from "@angular/router";
-import { MenuItem, PrimeIcons } from "primeng/api";
+import { MenuItem, MenuItemCommandEvent, PrimeIcons } from "primeng/api";
 
 @Injectable({
   providedIn: "root"
@@ -17,6 +17,10 @@ export class MenuSelectionService {
 
   //#region Members :: createMenuManager()
 
+  /**
+   * @description Cria o menu de cadastros
+   * @returns {MenuItem} Item de menu
+   */
   private createMenuManager(): MenuItem {
     const routeRoot: string = "manager/list";
 
@@ -24,14 +28,18 @@ export class MenuSelectionService {
       label: "Cadastro",
       icon: PrimeIcons.LIST,
       items: [
-        { label: "Alunos", icon: PrimeIcons.USERS, command: () => this.navigateTo([routeRoot, "student"]), badge: "Crie ou atualize alunos da EBD" },
-        { label: "Classes", icon: PrimeIcons.OBJECTS_COLUMN, command: () => this.navigateTo([routeRoot, "class"]), badge: "Crie ou atualize turmas da EBD, além de remanejar alunos para outras turmas" }
+        { label: "Alunos", icon: PrimeIcons.USERS, badge: "Crie ou atualize alunos da EBD", url: `${routeRoot}/student` },
+        { label: "Classes", icon: PrimeIcons.OBJECTS_COLUMN, badge: "Crie ou atualize turmas da EBD, além de remanejar alunos para outras turmas", url: `${routeRoot}/class` }
       ]
     };
 
     return root;
   }
 
+  /**
+   * @description Cria o menu de aplicação
+   * @returns {MenuItem} Item de menu
+   */
   private createMenuApplication(): MenuItem {
     const routeRoot: string = "application";
 
@@ -39,27 +47,23 @@ export class MenuSelectionService {
       label: "Aplicação",
       icon: PrimeIcons.DESKTOP,
       items: [
-        { label: "Chamada", icon: PrimeIcons.TICKET, command: () => this.navigateTo([routeRoot, "student"]), badge: "Faça chamada de alguma turma ou veja chamadas anteriores" },
-        { label: "Relatório", icon: PrimeIcons.FILE, command: () => this.navigateTo([routeRoot, "class"]), badge: "Crie um relatório ou veja relatórios anteriores" }
+        { label: "Chamada", icon: PrimeIcons.TICKET, badge: "Faça chamada de alguma turma ou veja chamadas anteriores", url: `${routeRoot}/roll` },
+        { label: "Relatório", icon: PrimeIcons.FILE, badge: "Crie um relatório ou veja relatórios anteriores", url: `${routeRoot}/report` }
       ]
     };
 
     return root;
   }
 
+  /**
+   * @description Retorna todos os menus
+   * @returns {MenuItem[]} Lista de items de menu
+   */
   public getMenuItems(): MenuItem[] {
     return [
       this.createMenuManager(),
       this.createMenuApplication()
     ];
-  }
-
-  //#endregion
-
-  //#region Members 'Action' :: navigateTo()
-
-  private navigateTo(target: string[]): void {
-    this.router.navigate(target);
   }
 
   //#endregion
