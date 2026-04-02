@@ -3,6 +3,9 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing-module';
 import { App } from './app';
+import { ComponentsModule } from './components/components.module';
+import { providePrimeNG } from 'primeng/config';
+import Aura from "@primeuix/themes/aura";
 
 @NgModule({
   declarations: [
@@ -10,10 +13,16 @@ import { App } from './app';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ComponentsModule
   ],
   providers: [
     provideBrowserGlobalErrorListeners(),
+    providePrimeNG({
+      theme: {
+        preset: Aura
+      }
+    })
   ],
   bootstrap: [App]
 })

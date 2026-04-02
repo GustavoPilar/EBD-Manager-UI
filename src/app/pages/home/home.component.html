@@ -1,0 +1,48 @@
+<!-- Start Header -->
+<div class="fluid h-20rem flex justify-content-center align-items-center">
+  <div class="w-full text-center">
+    <!-- Start logo -->
+    <div class="p-2">
+      <img src="" alt="Logo">
+    </div>
+    <!-- End Logo -->
+    <!-- Start Title -->
+    <div class="p-2">
+      <h1 class="my-2">EBD Manager</h1>
+    </div>
+    <!-- End Title -->
+    <!-- Start Subtitle -->
+    <div class="p-2">
+      <p class="my-2">Gerenciamento da Escola Biblica Dominical</p>
+    </div>
+    <!-- End Subtitle -->
+    <!-- Start Carousel -->
+    <div class="p-2 my-2">
+      <p-carousel [circular]="true" [value]="carouselItems" [autoplayInterval]="3000">
+        <ng-template #item let-item>
+          <p>{{item}}</p>
+        </ng-template>
+      </p-carousel>
+    </div>
+    <!-- End Carousel -->
+  </div>
+</div>
+<!-- End Start -->
+<!-- Start Body -->
+<div class="fluid p-2">
+  <div>
+    @for (root of roots; track $index) {
+      <h1 class="text-center bg-gray-100 border-round"><i [class]="root.icon"></i> {{root.label}}</h1>
+      @for (item of root.items; track $index) {
+        <div class="my-4 border-round-xl shadow-2">
+          <div class="w-full p-3 text-center">
+            <p class="text-xl my-2 bg-gray-100 border-round p-2"><i [class]="item.icon"></i> {{item.label}}</p>
+            <p class="p-2 my-2">{{item.badge}}</p>
+            <p-button fluid label="Acessar" [icon]="item.icon" iconPos="right" severity="info"></p-button>
+          </div>
+        </div>
+      }
+    }
+  </div>
+</div>
+<!-- End Body -->
