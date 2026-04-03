@@ -1,5 +1,5 @@
 import { ChangeDetectorRef, Component, Input, OnInit, ViewContainerRef } from "@angular/core";
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import { DisplayColumn } from "../../../models/table/display-column";
 import { CrudBase } from "../base/crud-base.component";
 
@@ -15,6 +15,7 @@ export class CrudListComponent implements OnInit {
   /** Nome da entidade */
   @Input() entityName!: string;
 
+  /** Entidades */
   public entities: any[] = [];
 
   public hasEntity: boolean = false;
@@ -29,7 +30,8 @@ export class CrudListComponent implements OnInit {
   constructor(
     private activatedRoute: ActivatedRoute,
     private viewRef: ViewContainerRef,
-    private cdr: ChangeDetectorRef
+    private cdr: ChangeDetectorRef,
+    private router: Router
   ) {
 
   }
@@ -80,5 +82,22 @@ export class CrudListComponent implements OnInit {
     return column.type;
   }
 
+  public getColumnValue(value: any): string {
+    if (!value)
+      return "-";
+
+    return value;
+  }
+
+  public getColumnDateValue(date: Date | null): string {
+    if (!date)
+      return "-";
+
+    return date.toLocaleDateString("pt-BR"); 
+  }
+
+  public edit(entity: any): void {
+    this.router.navigate(["manager/edit", this.entityName, entity.id]);
+  }
   //#endregion
 }

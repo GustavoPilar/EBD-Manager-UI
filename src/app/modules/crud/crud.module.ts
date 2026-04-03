@@ -17,10 +17,15 @@ import { ToggleButtonModule } from "primeng/togglebutton";
 import { CrudListComponent } from "./crud-list/crud-list.component";
 import { CrudRoutingModule } from "./crud-routing.module";
 import { TagModule } from "primeng/tag";
+import { CrudFormComponent } from "./crud-form/crud-form.component";
+import { StudentComponent } from "./entities/student/student.component";
 
 @NgModule({
   declarations: [
-    CrudListComponent
+    CrudListComponent,
+    CrudFormComponent,
+
+    StudentComponent
   ],
   imports: [
     CommonModule,

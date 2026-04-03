@@ -1,0 +1,10 @@
+<div class="fluid bg-white">
+    <div class="w-full p-2 bg-blue-500 border-round">
+        <h2 class="text-white">Formulário</h2>
+    </div>
+    <div #crudForm ></div>
+    <div class="w-full p-2 border-round flex justify-content-between align-items-center">
+        <p-button variant="text" label="Canelar e voltar" icon="pi pi-undo" iconPos="right" severity="danger" (onClick)="cancel()"></p-button>
+        <p-button label="Salvar" icon="pi pi-send" iconPos="right" severity="success" [disabled]="!canSave()"></p-button>
+    </div>
+</div>

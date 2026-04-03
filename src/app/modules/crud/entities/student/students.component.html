@@ -1,0 +1,37 @@
+@if (isForm) {
+    <form [formGroup]="entityForm">
+        <div class="grid p-2">
+            <!-- Start Name -->
+            <div class="field col-12 md:col-6">
+                <label for="name"><span class="text-red-500">*</span> Nome:</label>
+                <input type="text" pInputText id="name" formControlName="name" fluid placeholder="Digite o nome do aluno" size="small" />
+            </div>
+            <!-- End Name -->
+            <!-- Start BirthDate -->
+            <div class="field col-12 md:col-6">
+                <label for="birthDate">Aniversário:</label>
+                <p-date-picker id="birthDate" inputId="birthDate" formControlName="birthDate" fluid [showIcon]="true" [showClear]="true" (onSelect)="onChangeBirthDate($event)" (onClear)="onChangeBirthDate($event)"></p-date-picker>
+            </div>
+            <!-- End BirthDate -->
+            <!-- Start Age -->
+            <div class="field col-12 md:col-6">
+                <label for="age">Idade:</label>
+                <p-input-number id="age" inputId="age" formControlName="age" fluid suffix=" anos" [disabled]="true" placeholder="Nenhuma data foi informada..."></p-input-number>
+                <small class="text-blue-500">Para alterar a idade, informe a data de aniversário.</small>
+            </div>
+            <!-- End Age -->
+            <!-- Start Status -->
+            <div class="field col-12 md:col-6">
+                <label for="status"><span class="text-red-500">*</span> Status:</label>
+                <p-toggle-button id="status" onLabel="Ativo" offLabel="Inativo" fluid formControlName="status"></p-toggle-button>
+            </div>
+            <!-- End Status -->
+            <!-- Start IsMale -->
+            <div class="field col-12 md:col-6">
+                <label for="isMale"><span class="text-red-500">*</span> Gênero:</label>
+                <p-toggle-button id="isMale" onLabel="Home" offLabel="Mulher" fluid formControlName="isMale"></p-toggle-button>
+            </div>
+            <!-- End IsMale -->
+        </div>
+    </form>
+}
