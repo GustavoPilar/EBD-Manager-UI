@@ -28,8 +28,8 @@ export class MenuSelectionService {
       label: "Cadastro",
       icon: PrimeIcons.LIST,
       items: [
-        { label: "Alunos", icon: PrimeIcons.USERS, badge: "Crie ou atualize alunos da EBD", url: `${routeRoot}/student` },
-        { label: "Classes", icon: PrimeIcons.OBJECTS_COLUMN, badge: "Crie ou atualize turmas da EBD, além de remanejar alunos para outras turmas", url: `${routeRoot}/class` }
+        { label: "Alunos", icon: PrimeIcons.USERS, tooltip: "Crie ou atualize alunos da EBD", url: `${routeRoot}/student` },
+        { label: "Classes", icon: PrimeIcons.OBJECTS_COLUMN, tooltip: "Crie ou atualize turmas da EBD, além de remanejar alunos para outras turmas", url: `${routeRoot}/class` }
       ]
     };
 
@@ -47,8 +47,8 @@ export class MenuSelectionService {
       label: "Aplicação",
       icon: PrimeIcons.DESKTOP,
       items: [
-        { label: "Chamada", icon: PrimeIcons.TICKET, badge: "Faça chamada de alguma turma ou veja chamadas anteriores", url: `${routeRoot}/roll` },
-        { label: "Relatório", icon: PrimeIcons.FILE, badge: "Crie um relatório ou veja relatórios anteriores", url: `${routeRoot}/report` }
+        { label: "Chamada", icon: PrimeIcons.TICKET, tooltip: "Faça chamada de alguma turma ou veja chamadas anteriores", url: `${routeRoot}/roll` },
+        { label: "Relatório", icon: PrimeIcons.FILE, tooltip: "Crie um relatório ou veja relatórios anteriores", url: `${routeRoot}/report` }
       ]
     };
 

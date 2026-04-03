@@ -30,14 +30,14 @@
 <!-- End Start -->
 <!-- Start Body -->
 <div class="fluid p-2">
-  <div>
+  <div class="grid p-2 gap-5">
     @for (root of roots; track $index) {
-      <h1 class="text-center bg-gray-100 border-round"><i [class]="root.icon"></i> {{root.label}}</h1>
+      <h1 class="text-center bg-gray-100 border-round col-12"><i [class]="root.icon"></i> {{root.label}}</h1>
       @for (item of root.items; track $index) {
-        <div class="my-4 border-round-xl shadow-2">
+        <div class="border-round-xl shadow-2 col-10 md:col-5 m-auto">
           <div class="w-full p-3 text-center">
             <p class="text-xl my-2 bg-gray-100 border-round p-2"><i [class]="item.icon"></i> {{item.label}}</p>
-            <p class="p-2 my-2">{{item.badge}}</p>
+            <p class="p-2 my-2">{{item.tooltip}}</p>
             <p-button fluid label="Acessar" [icon]="item.icon" iconPos="right" severity="info" (onClick)="navigateTo(item.url!)"></p-button>
           </div>
         </div>
